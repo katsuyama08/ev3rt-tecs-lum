@@ -1,0 +1,38 @@
+/*
+ * HelloWorld3 より抜粋
+ */
+
+/*--------  シグニチャ記述  --------*/
+
+/* sPutString シグニチャ (インタフェースの型) */
+signature sPutString {
+  void  putString( [in,string]const char_t *string );
+};
+
+/*--------  セルタイプ記述  --------*/
+
+/* tPutStringStdio セルタイプ */
+celltype tPutStringStdio {
+  entry  sPutString ePutString;
+};
+
+/* tHelloWorld セルタイプ */
+celltype tHelloWorld {
+  entry sTaskBody  eMain;
+  call  sPutString cPutString;
+  attr {
+    char_t *message = "Hello World!\n";
+  };
+};
+
+/*--------  組上げ(セル)記述  --------*/
+/* PutStringStdio セル (コンポーネント) */
+cell tPutStringStdio PutStringStdio {
+};
+
+/* HelloWorld セル (コンポーネント) */
+cell tHelloWorld HelloWorld {
+  cPutString = PutStringStdio.ePutString;
+  message = "Good luck with TECS!\n";
+};
+

@@ -1,0 +1,10 @@
+#MRUBYPATH = /home/hiro2/mruby/mruby-1.4.0
+MRUBYPATH = /home/hiro2/mruby/mruby-2.0.1
+MRUBYLDPATH = $(MRUBYPATH)/build/host/lib
+
+
+mruby:
+	@if [ ! -e $(MRUBYPATH) ]; then echo 'set MRUBYPATH in Makefile.common to where mruby is !!' ; exit -1 ; fi
+mruby_lib:
+	@if [ ! -e $(MRUBYLDPATH)/libmruby.a ]; then echo 'libmruby.a not found. build mruby !!' ; exit -1 ; fi
+

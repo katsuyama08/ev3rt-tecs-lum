@@ -1,0 +1,39 @@
+# https://github.com/ev3rt-git/ev3rt-hrp3/blob/master/.gitignore より
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.i*86
+*.x86_64
+*.hex
+
+# System image
+uImage
+
+# Build directories
+OBJ/
+
+# Debug files
+*.dSYM/

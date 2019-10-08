@@ -1,0 +1,43 @@
+import( "cygwin_kernel.cdl" );
+
+signature sSample {
+	ER  sayHello( [in]int32_t times );
+	ER  howAreYou( [out,string(len)]char_t *buf, [in]int32_t len );
+};
+
+celltype tSample {
+	entry sSample eEnt;
+};
+
+cell tSample Sample
+{
+};
+
+generate( MrubyBridgePlugin, sSample, "" );
+
+cell nMruby::tsSample SimpleBridge {
+  cTECS = Sample.eEnt;
+};
+
+generate( C2TECSBridgePlugin, nPosix::sMain, "" );
+
+cell nC2TECS::tnPosix_sMain Main {
+	cCall = VM.eMain;
+};
+
+cell nMruby::tMrubyProc VM {
+  cInit = VM_TECSInitializer.eInitialize;
+};
+
+import( <TECSInfoAccessor.cdl> );
+/******* TECSInfo cell *******/
+cell nTECSInfo::tTECSInfo TECSInfo {
+    // 以下の結合は、 TECSInfoPlugin により自動生成される
+    // cTECSInfo = rTECSInfo::TECSInfoSub.eTECSInfo;
+};
+
+/******* TECSInfoAccessor cell *******/
+[generate( MrubyBridgePlugin, "")]
+cell nTECSInfo::tTECSInfoAccessor TECSInfoAccessor {
+    cTECSInfo = TECSInfo.eTECSInfo;
+};

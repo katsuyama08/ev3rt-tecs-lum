@@ -1,0 +1,67 @@
+import( <cygwin_kernel.cdl> );
+import( <TECSInfo.cdl> );
+import( <TECSInfoAccessor.cdl> );
+import( "HelloWorld.cdl" );
+
+/*
+ * TECSInfo 使用サンプル
+ */
+celltype tTaskMain {
+    entry sTaskBody            eBody;
+    call  nTECSInfo::sTECSInfo cTECSInfo;
+    [dynamic,optional]
+        call  nTECSInfo::sNamespaceInfo cNSInfo;
+    [dynamic,optional]
+        call  nTECSInfo::sRegionInfo    cRegionInfo;
+    [dynamic,optional]
+        call  nTECSInfo::sCellInfo      cCellInfo;
+    [dynamic,optional]
+        call  nTECSInfo::sSignatureInfo cSignatureInfo;
+    [dynamic,optional]
+        call  nTECSInfo::sCelltypeInfo  cCelltypeInfo;
+    [dynamic,optional]
+        call  nTECSInfo::sVarDeclInfo   cVarDeclInfo;
+    [dynamic,optional]
+        call  nTECSInfo::sTypeInfo      cTypeInfo;
+
+    /*----- RawEntryDescriptor test -----*/
+    [dynamic,optional]
+        call  sPutString                cPutString;
+    [dynamic,optional]
+        call  sTaskBody                 cTaskBody;
+    [dynamic,optional]
+        call  nTECSInfo::sRawEntryDescriptorInfo   cREDInfo;
+    [dynamic,optional]
+        call  nTECSInfo::sEntryInfo     cEntryInfo;
+    /*----- RawEntryDescriptor test -----*/
+
+    attr{
+        int16_t NAME_LEN = 256;
+    };
+    var{
+        [size_is(NAME_LEN)]
+            char_t  *name;
+        [size_is(NAME_LEN)]
+            char_t  *name2;
+    };
+};
+
+cell tTask Task {
+    taskAttribute = C_EXP("TA_ACT");
+    priority      = 11;
+    stackSize     = 4096;
+    cBody         = rTEMP::TaskMain.eBody;
+};
+
+[in_through()]
+region rTEMP{
+    cell tTaskMain TaskMain {
+        cTECSInfo  = TECSInfo.eTECSInfo;
+    };
+
+/******* TECSInfo cell *******/
+    cell nTECSInfo::tTECSInfo TECSInfo {
+        // cTECSInfo = rTECSInfo::TECSInfoSub.eTECSInfo;
+        //  この結合は TECSInfoPlugin により生成されるので結合不要
+    };
+};

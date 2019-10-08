@@ -1,0 +1,580 @@
+__tool_info__ ("tecsgen") {
+    "tecscde_version"     : "1.D.0.0",
+    "cde_format_version"  : "0.5.0.0",
+    "save_date"           : "2015-03-07T16:43:44+09:00",
+    "base_dir" : [
+        "/home/oyama/TECS/tecscde",
+        "/home/oyama/TECS/tecsgen/test",
+        "c:/cygwin/home/oyama/TECS/tecsgen/test"
+    ],
+    "define_macro" : [
+
+    ],
+   "import_path" : [
+        ".",
+        "c:/cygwin/home/oyama/TECS/tecscde/tecs",
+        "cygwin/"
+    ],
+    "direct_import" : [
+        "portarray.cdl"
+    ]
+}
+
+cell ::tCallArray CallArray {
+
+    /*** call ports ***/
+    carray[ 0 ] = EntryArray.earray[ 0 ];
+    carray[ 1 ] = EntryArray.earray[ 1 ];
+    carray2[ 0 ] = EntryArray.earray[ 2 ];
+    carray2[ 1 ] = EntryArray.earray[ 1 ];
+};
+cell ::tEntryArray EntryArray {
+
+    /*** call ports ***/
+    callback[ 0 ] = CallArray.callback[ 0 ];
+    callback[ 1 ] = CallArray.callback[ 1 ];
+};
+
+/*************************************************
+ *         TOOL INFORMATION FOR TECSCDE          *
+ *     This  information is used by tecscde      *
+ *  please don't touch if you are not familiar   *
+ ************************************************/
+__tool_info__ ("tecscde") {
+    "paper" : {
+       "type" : "paper",
+       "size" :  "A3",
+       "orientation" :  "LANDSCAPE"
+    },
+    "cell_list" : [
+        {       /** cell_list[ 0 ] **/
+            "type"     : "cell_location",
+            "name"     : "Callarray",
+            "location" : [ 62.0, 74.0, 30.0, 20.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "carray",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "carray",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 8.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "carray2",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 12.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "carray2",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 16.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "callback",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "callback",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 8.0
+                }
+            ]
+        },
+        {       /** cell_list[ 1 ] **/
+            "type"     : "cell_location",
+            "name"     : "Entryarray",
+            "location" : [ 65.0, 21.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "callback",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "callback",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 8.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "earray",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "earray",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 8.0
+                }
+            ]
+        },
+        {       /** cell_list[ 2 ] **/
+            "type"     : "cell_location",
+            "name"     : "CallArray",
+            "location" : [ 142.0, 51.0, 30.0, 20.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "carray",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "carray",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 8.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "carray2",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 12.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "carray2",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 16.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "callback",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "callback",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 8.0
+                }
+            ]
+        },
+        {       /** cell_list[ 3 ] **/
+            "type"     : "cell_location",
+            "name"     : "EntryArray",
+            "location" : [ 197.0, 55.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "callback",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "callback",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 8.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "earray",
+                    "subscript" : 0,
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 15.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "earray",
+                    "subscript" : 1,
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 20.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "earray",
+                    "subscript" : 2,
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 25.0
+                }
+            ]
+        }
+    ],
+    "join_list" : [
+        {       /** join_list[ 0 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Callarray",
+            "call_region" : "::",
+            "call_port"   : "carray",
+            "call_port_subscript" : 0,
+            "entry_cell"  : "Entryarray",
+            "entry_region": "::",
+            "entry_port"  : "earray",
+            "entry_port_subscript" : 0,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 112.75
+                },                {
+                     "type"     : "HBar",
+                     "position" : 49.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 8.25
+                },                {
+                     "type"     : "HBar",
+                     "position" : 69.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 21.0
+                }
+            ]
+        },
+        {       /** join_list[ 1 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Callarray",
+            "call_region" : "::",
+            "call_port"   : "carray",
+            "call_port_subscript" : 1,
+            "entry_cell"  : "Entryarray",
+            "entry_region": "::",
+            "entry_port"  : "earray",
+            "entry_port_subscript" : 1,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 120.074
+                },                {
+                     "type"     : "HBar",
+                     "position" : 43.236
+                },                {
+                     "type"     : "VBar",
+                     "position" : 4.318
+                },                {
+                     "type"     : "HBar",
+                     "position" : 73.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 21.0
+                }
+            ]
+        },
+        {       /** join_list[ 2 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Callarray",
+            "call_region" : "::",
+            "call_port"   : "carray2",
+            "call_port_subscript" : 0,
+            "entry_cell"  : "Entryarray",
+            "entry_region": "::",
+            "entry_port"  : "earray",
+            "entry_port_subscript" : 0,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 112.75
+                },                {
+                     "type"     : "HBar",
+                     "position" : 49.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 8.25
+                },                {
+                     "type"     : "HBar",
+                     "position" : 69.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 21.0
+                }
+            ]
+        },
+        {       /** join_list[ 3 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Callarray",
+            "call_region" : "::",
+            "call_port"   : "carray2",
+            "call_port_subscript" : 1,
+            "entry_cell"  : "Entryarray",
+            "entry_region": "::",
+            "entry_port"  : "earray",
+            "entry_port_subscript" : 1,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 107.628
+                },                {
+                     "type"     : "HBar",
+                     "position" : 111.308
+                },                {
+                     "type"     : "VBar",
+                     "position" : 4.826
+                },                {
+                     "type"     : "HBar",
+                     "position" : 73.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 21.0
+                }
+            ]
+        },
+        {       /** join_list[ 4 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Entryarray",
+            "call_region" : "::",
+            "call_port"   : "callback",
+            "call_port_subscript" : 0,
+            "entry_cell"  : "Callarray",
+            "entry_region": "::",
+            "entry_port"  : "callback",
+            "entry_port_subscript" : 0,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 45.414
+                },                {
+                     "type"     : "HBar",
+                     "position" : 69.384
+                },                {
+                     "type"     : "VBar",
+                     "position" : 55.118
+                },                {
+                     "type"     : "HBar",
+                     "position" : 66.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 74.0
+                }
+            ]
+        },
+        {       /** join_list[ 5 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Entryarray",
+            "call_region" : "::",
+            "call_port"   : "callback",
+            "call_port_subscript" : 1,
+            "entry_cell"  : "Callarray",
+            "entry_region": "::",
+            "entry_port"  : "callback",
+            "entry_port_subscript" : 1,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 45.414
+                },                {
+                     "type"     : "HBar",
+                     "position" : 78.528
+                },                {
+                     "type"     : "VBar",
+                     "position" : 60.452
+                },                {
+                     "type"     : "HBar",
+                     "position" : 70.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 74.0
+                }
+            ]
+        },
+        {       /** join_list[ 6 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "CallArray",
+            "call_region" : "::",
+            "call_port"   : "carray",
+            "call_port_subscript" : 0,
+            "entry_cell"  : "EntryArray",
+            "entry_region": "::",
+            "entry_port"  : "earray",
+            "entry_port_subscript" : 0,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 101.25
+                },                {
+                     "type"     : "HBar",
+                     "position" : 189.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 35.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 212.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 55.0
+                }
+            ]
+        },
+        {       /** join_list[ 7 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "CallArray",
+            "call_region" : "::",
+            "call_port"   : "carray",
+            "call_port_subscript" : 1,
+            "entry_cell"  : "EntryArray",
+            "entry_region": "::",
+            "entry_port"  : "earray",
+            "entry_port_subscript" : 1,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 97.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 185.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 31.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 217.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 55.0
+                }
+            ]
+        },
+        {       /** join_list[ 8 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "CallArray",
+            "call_region" : "::",
+            "call_port"   : "carray2",
+            "call_port_subscript" : 1,
+            "entry_cell"  : "EntryArray",
+            "entry_region": "::",
+            "entry_port"  : "earray",
+            "entry_port_subscript" : 1,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 97.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 185.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 31.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 217.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 55.0
+                }
+            ]
+        },
+        {       /** join_list[ 9 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "EntryArray",
+            "call_region" : "::",
+            "call_port"   : "callback",
+            "call_port_subscript" : 0,
+            "entry_cell"  : "CallArray",
+            "entry_region": "::",
+            "entry_port"  : "callback",
+            "entry_port_subscript" : 0,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 84.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 178.25
+                },                {
+                     "type"     : "VBar",
+                     "position" : 36.75
+                },                {
+                     "type"     : "HBar",
+                     "position" : 146.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 51.0
+                }
+            ]
+        },
+        {       /** join_list[ 10 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "EntryArray",
+            "call_region" : "::",
+            "call_port"   : "callback",
+            "call_port_subscript" : 1,
+            "entry_cell"  : "CallArray",
+            "entry_region": "::",
+            "entry_port"  : "callback",
+            "entry_port_subscript" : 1,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 87.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 175.25
+                },                {
+                     "type"     : "VBar",
+                     "position" : 40.75
+                },                {
+                     "type"     : "HBar",
+                     "position" : 150.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 51.0
+                }
+            ]
+        },
+        {       /** join_list[ 11 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "CallArray",
+            "call_region" : "::",
+            "call_port"   : "carray2",
+            "call_port_subscript" : 0,
+            "entry_cell"  : "EntryArray",
+            "entry_region": "::",
+            "entry_port"  : "earray",
+            "entry_port_subscript" : 2,
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 94.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 182.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 28.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 222.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 55.0
+                }
+            ]
+        }
+    ]
+}

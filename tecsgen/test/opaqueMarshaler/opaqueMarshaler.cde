@@ -1,0 +1,879 @@
+__tool_info__ ("tecsgen") {
+    "tecscde_version"     : "0.5.1.0",
+    "cde_format_version"  : "0.5.0.0",
+    "save_date"           : "2017-11-05T12:30:58+00:00",
+    "base_dir" : [
+        "C:/cygwin64/home/oyama/TECS/tecsgen/test/opaqueMarshaler"
+    ],
+    "define_macro" : [
+
+    ],
+   "import_path" : [
+        ".",
+        "../../tecsgen/tecs",
+        "../../tecsgen/tecs/rpc",
+        "../cygwin"
+    ],
+    "direct_import" : [
+        "opaqueMarshaler.cdl"
+    ]
+}
+
+
+/*************************************************
+ *         TOOL INFORMATION FOR TECSCDE          *
+ *     This  information is used by tecscde      *
+ *  please don't touch if you are not familiar   *
+ ************************************************/
+__tool_info__ ("tecscde") {
+    "paper" : {
+       "type" : "paper",
+       "size" :  "A3",
+       "orientation" :  "LANDSCAPE"
+    },
+    "cell_list" : [
+        {       /** cell_list[ 0 ] **/
+            "type"     : "cell_location",
+            "name"     : "SysLog",
+            "location" : [ 112.0, 32.0, 25.0, 15.0 ],
+            "region"   : "::rClient",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eSysLog",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 1 ] **/
+            "type"     : "cell_location",
+            "name"     : "SocketClient",
+            "location" : [ 45.0, 205.0, 25.0, 15.0 ],
+            "region"   : "::rClient",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eC0",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eOpener",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 18.0
+                }
+            ]
+        },
+        {       /** cell_list[ 2 ] **/
+            "type"     : "cell_location",
+            "name"     : "TDR",
+            "location" : [ 44.0, 160.0, 25.0, 15.0 ],
+            "region"   : "::rClient",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cChannel",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eTDR",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 3 ] **/
+            "type"     : "cell_location",
+            "name"     : "Sema",
+            "location" : [ 80.0, 163.0, 25.0, 15.0 ],
+            "region"   : "::rClient",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eSemaphore",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eiSemaphore",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 8.0
+                }
+            ]
+        },
+        {       /** cell_list[ 4 ] **/
+            "type"     : "cell_location",
+            "name"     : "Marshaler",
+            "location" : [ 56.0, 107.0, 41.0, 15.0 ],
+            "region"   : "::rClient",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cTDR",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 19.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cLockChannel",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 27.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cErrorHandler",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 6.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eClientEntry",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 5 ] **/
+            "type"     : "cell_location",
+            "name"     : "Client",
+            "location" : [ 60.0, 71.0, 25.0, 15.0 ],
+            "region"   : "::rClient",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cCall",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eMain",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 6 ] **/
+            "type"     : "cell_location",
+            "name"     : "RPCAdaptor",
+            "location" : [ 56.0, 32.0, 25.0, 15.0 ],
+            "region"   : "::rClient",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cCall",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cOpener",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 8.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eMain",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 14.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eErrorHandler",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 18.0
+                }
+            ]
+        },
+        {       /** cell_list[ 7 ] **/
+            "type"     : "cell_location",
+            "name"     : "ClientTask",
+            "location" : [ 10.0, 40.0, 25.0, 15.0 ],
+            "region"   : "::rClient",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cBody",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cExceptionBody",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 8.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eTask",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 8 ] **/
+            "type"     : "cell_location",
+            "name"     : "PPAllocator",
+            "location" : [ 251.0, 176.0, 25.0, 15.0 ],
+            "region"   : "::rServer",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "ePPAllocator",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 9 ] **/
+            "type"     : "cell_location",
+            "name"     : "Kernel",
+            "location" : [ 346.0, 44.0, 25.0, 15.0 ],
+            "region"   : "::rServer",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eKernel",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eiKernel",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 8.0
+                }
+            ]
+        },
+        {       /** cell_list[ 10 ] **/
+            "type"     : "cell_location",
+            "name"     : "Socket",
+            "location" : [ 316.0, 201.0, 25.0, 15.0 ],
+            "region"   : "::rServer",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eC1",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eOpener",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 12.0
+                }
+            ]
+        },
+        {       /** cell_list[ 11 ] **/
+            "type"     : "cell_location",
+            "name"     : "ServerTDR",
+            "location" : [ 284.0, 162.0, 25.0, 15.0 ],
+            "region"   : "::rServer",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cChannel",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eTDR",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 12 ] **/
+            "type"     : "cell_location",
+            "name"     : "ErrorHandler",
+            "location" : [ 342.0, 151.0, 36.0, 15.0 ],
+            "region"   : "::rServer",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cOpener",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 12.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eErrorHandler",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 13 ] **/
+            "type"     : "cell_location",
+            "name"     : "Unmarshaler",
+            "location" : [ 254.0, 110.0, 46.0, 15.0 ],
+            "region"   : "::rServer",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cServerCall",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cTDR",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 21.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cErrorHandler",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 30.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cPPAllocator",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 16.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eService",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 14 ] **/
+            "type"     : "cell_location",
+            "name"     : "Server",
+            "location" : [ 222.0, 155.0, 25.0, 15.0 ],
+            "region"   : "::rServer",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eEnt",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 15 ] **/
+            "type"     : "cell_location",
+            "name"     : "Main",
+            "location" : [ 254.0, 68.0, 62.0, 15.0 ],
+            "region"   : "::rServer",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cMain",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cOpener",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 25.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eMain",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 16 ] **/
+            "type"     : "cell_location",
+            "name"     : "Task",
+            "location" : [ 259.0, 19.0, 25.0, 15.0 ],
+            "region"   : "::rServer",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cBody",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cExceptionBody",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 8.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eTask",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        }
+    ],
+    "join_list" : [
+        {       /** join_list[ 0 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "TDR",
+            "call_region" : "::rClient",
+            "call_port"   : "cChannel",
+            "entry_cell"  : "SocketClient",
+            "entry_region": "::rClient",
+            "entry_port"  : "eC0",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 187.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 30.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 190.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 49.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 205.0
+                }
+            ]
+        },
+        {       /** join_list[ 1 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Marshaler",
+            "call_region" : "::rClient",
+            "call_port"   : "cTDR",
+            "entry_cell"  : "TDR",
+            "entry_region": "::rClient",
+            "entry_port"  : "eTDR",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 147.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 58.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 146.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 48.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 160.0
+                }
+            ]
+        },
+        {       /** join_list[ 2 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Marshaler",
+            "call_region" : "::rClient",
+            "call_port"   : "cLockChannel",
+            "entry_cell"  : "Sema",
+            "entry_region": "::rClient",
+            "entry_port"  : "eSemaphore",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 137.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 99.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 140.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 84.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 163.0
+                }
+            ]
+        },
+        {       /** join_list[ 3 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Marshaler",
+            "call_region" : "::rClient",
+            "call_port"   : "cErrorHandler",
+            "entry_cell"  : "RPCAdaptor",
+            "entry_region": "::rClient",
+            "entry_port"  : "eErrorHandler",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 139.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 5.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 17.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 74.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 32.0
+                }
+            ]
+        },
+        {       /** join_list[ 4 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Client",
+            "call_region" : "::rClient",
+            "call_port"   : "cCall",
+            "entry_cell"  : "Marshaler",
+            "entry_region": "::rClient",
+            "entry_port"  : "eClientEntry",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 90.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 86.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 95.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 60.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 107.0
+                }
+            ]
+        },
+        {       /** join_list[ 5 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "RPCAdaptor",
+            "call_region" : "::rClient",
+            "call_port"   : "cCall",
+            "entry_cell"  : "Client",
+            "entry_region": "::rClient",
+            "entry_port"  : "eMain",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 60.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 81.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 63.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 64.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 71.0
+                }
+            ]
+        },
+        {       /** join_list[ 6 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "RPCAdaptor",
+            "call_region" : "::rClient",
+            "call_port"   : "cOpener",
+            "entry_cell"  : "SocketClient",
+            "entry_region": "::rClient",
+            "entry_port"  : "eOpener",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 55.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 124.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 188.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 63.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 205.0
+                }
+            ]
+        },
+        {       /** join_list[ 7 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "ClientTask",
+            "call_region" : "::rClient",
+            "call_port"   : "cBody",
+            "entry_cell"  : "RPCAdaptor",
+            "entry_region": "::rClient",
+            "entry_port"  : "eMain",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 65.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 51.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 22.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 70.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 32.0
+                }
+            ]
+        },
+        {       /** join_list[ 8 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "ServerTDR",
+            "call_region" : "::rServer",
+            "call_port"   : "cChannel",
+            "entry_cell"  : "Socket",
+            "entry_region": "::rServer",
+            "entry_port"  : "eC1",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 185.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 301.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 185.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 320.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 201.0
+                }
+            ]
+        },
+        {       /** join_list[ 9 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "ErrorHandler",
+            "call_region" : "::rServer",
+            "call_port"   : "cOpener",
+            "entry_cell"  : "Socket",
+            "entry_region": "::rServer",
+            "entry_port"  : "eOpener",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 172.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 354.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 180.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 328.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 201.0
+                }
+            ]
+        },
+        {       /** join_list[ 10 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Unmarshaler",
+            "call_region" : "::rServer",
+            "call_port"   : "cTDR",
+            "entry_cell"  : "ServerTDR",
+            "entry_region": "::rServer",
+            "entry_port"  : "eTDR",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 144.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 300.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 152.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 288.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 162.0
+                }
+            ]
+        },
+        {       /** join_list[ 11 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Unmarshaler",
+            "call_region" : "::rServer",
+            "call_port"   : "cPPAllocator",
+            "entry_cell"  : "PPAllocator",
+            "entry_region": "::rServer",
+            "entry_port"  : "ePPAllocator",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 151.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 265.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 151.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 255.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 176.0
+                }
+            ]
+        },
+        {       /** join_list[ 12 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Unmarshaler",
+            "call_region" : "::rServer",
+            "call_port"   : "cServerCall",
+            "entry_cell"  : "Server",
+            "entry_region": "::rServer",
+            "entry_port"  : "eEnt",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 140.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 239.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 140.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 226.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 155.0
+                }
+            ]
+        },
+        {       /** join_list[ 13 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Unmarshaler",
+            "call_region" : "::rServer",
+            "call_port"   : "cErrorHandler",
+            "entry_cell"  : "ErrorHandler",
+            "entry_region": "::rServer",
+            "entry_port"  : "eErrorHandler",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 132.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 311.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 132.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 346.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 151.0
+                }
+            ]
+        },
+        {       /** join_list[ 14 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Main",
+            "call_region" : "::rServer",
+            "call_port"   : "cMain",
+            "entry_cell"  : "Unmarshaler",
+            "entry_region": "::rServer",
+            "entry_port"  : "eService",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 97.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 228.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 100.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 258.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 110.0
+                }
+            ]
+        },
+        {       /** join_list[ 15 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Main",
+            "call_region" : "::rServer",
+            "call_port"   : "cOpener",
+            "entry_cell"  : "Socket",
+            "entry_region": "::rServer",
+            "entry_port"  : "eOpener",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 93.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 386.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 180.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 328.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 201.0
+                }
+            ]
+        },
+        {       /** join_list[ 16 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "Task",
+            "call_region" : "::rServer",
+            "call_port"   : "cBody",
+            "entry_cell"  : "Main",
+            "entry_region": "::rServer",
+            "entry_port"  : "eMain",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 55.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 311.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 58.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 258.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 68.0
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,161 @@
+/*
+ * このディレクトリにある内容は、TOPPERS/ASP のカーネル API のブリッジ
+ * のビルドが通ることを確認するためのものである。
+ * ブリッジの動作を確認する目的であれば、動かしてみることはできる。
+ * ただし、まだセルタイプコードとしてスタブを実装していないので、ラン
+ * ダムな値が返る。
+ */
+
+import_C( "tecs.h" );
+import(<kernel.cdl>);
+
+import_C( "char_t.h" );
+
+/*
+generate( MrubyBridgePlugin, sTask,
+  "include ='activate, cancelActivate', "
+  "include ='terminate, changePriority', "
+  "include ='wakeup, cancelWakeup', "
+  "include ='releaseWait, suspend', "
+  "include ='raiseException, getPriority', "
+  "include ='resume, refer' "
+);
+generate( MrubyBridgePlugin, sKernel, "" );
+generate( MrubyBridgePlugin, sSemaphore, "" );
+generate( MrubyBridgePlugin, sEventflag, "" );
+generate( MrubyBridgePlugin, sDataqueue, "" );
+generate( MrubyBridgePlugin, sTaskBody, "" );
+generate( MrubyBridgePlugin, sTaskExceptionBody, "" );
+generate( MrubyBridgePlugin, sInitializeRoutineBody, "" );
+generate( MrubyBridgePlugin, sTerminateRoutineBody, "" );
+generate( MrubyBridgePlugin, sConfigInterrupt, "" );
+generate( MrubyBridgePlugin, sCyclic, "" );
+generate( MrubyBridgePlugin, sAlarm, "" );
+generate( MrubyBridgePlugin, sPriorityDataqueue, "" );
+*/
+
+// generate( MrubyBridgePlugin, sFixedSizeMemoryPool, "" );
+    // void*, void** があるために
+
+celltype tAll {
+	entry sKernel                eKernel;
+	entry siKernel               eiKernel;
+	entry siNotificationHandler  eiNotificationHandler;
+	entry sTaskBody              eTaskBody;
+	entry sTask                  eTask;
+	entry siTask                 eiTask;
+	entry sSemaphore             eSemaphore;
+	entry siSemaphore            eiSemaphore;
+	entry sEventflag             eEventflag;
+	entry siEventflag            eiEventflag;
+	entry sDataqueue             eDataqueue;
+	entry siDataqueue            eiDataqueue;
+	entry sPriorityDataqueue     ePriorityDataqueue;
+	entry siPriorityDataqueue    eiPriorityDataqueue;
+	entry sMutex                 eMutex;
+	entry sFixedSizeMemoryPool   eFixedSizeMemoryPool;
+	entry siHandlerBody          eiHandlerBody;
+	entry sCyclic                eCyclic;
+	entry sAlarm                 eAlarm;
+	entry siAlarm                eiAlarm;
+	entry sInterruptRequest      eInterruptRequest;
+	entry sRoutineBody           eRoutineBody;
+};
+
+[generate(MrubyBridgePlugin,"")]
+cell tAll All {};
+
+/*
+cell nMruby::tsTask TaskBridge {
+	cTECS = All.eTask;
+};
+
+cell nMruby::tsKernel KernelBridge {
+	cTECS = All.eKernel;
+};
+
+cell nMruby::tsSemaphore SemaphoreBridge {
+	cTECS = All.eSemaphore;
+};
+
+cell nMruby::tsEventflag EventflagBridge {
+	cTECS = All.eEventflag;
+};
+
+cell nMruby::tsDataqueue DataqueueBridge {
+	cTECS = All.eDataqueue;
+};
+
+cell nMruby::tsTaskBody TaskBodyBridge {
+	cTECS = All.eTaskBody;
+};
+
+cell nMruby::tsTaskExceptionBody TaskExceptionBodyBridge {
+	cTECS = All.eTaskExceptionBody;
+};
+
+cell nMruby::tsInitializeRoutineBody InitializeRoutineBodyBridge {
+	cTECS = All.eInitializeRoutineBody;
+};
+
+cell nMruby::tsTerminateRoutineBody TerminateRoutineBodyBridge {
+	cTECS = All.eTerminateRoutineBody;
+};
+
+cell nMruby::tsConfigInterrupt ConfigInterruptBridge {
+	cTECS = All.eConfigInterrupt;
+};
+
+cell nMruby::tsCyclic CyclicBridge {
+	cTECS = All.eCyclic;
+};
+
+cell nMruby::tsAlarm AlarmBridge {
+	cTECS = All.eAlarm;
+};
+
+cell nMruby::tsPriorityDataqueue PriorityDataqueueBridge {
+	cTECS = All.ePriorityDataqueue;
+};
+*/
+
+// cell nMruby::tsFixedSizeMemoryPool FixedSizeMemoryPoolBridge  {
+//	cTECS = All.eFixedSizeMemoryPool;
+// };
+
+/*
+sTaskBody
+sTaskExceptionBody
+sTask
+siTask
+sInitializeRoutineBody
+sTerminateRoutineBody
+siHandlerBody
+sConfigInterrupt
+sCyclic
+sAlarm
+siAlarm
+sSemaphore
+siSemaphore
+sEventflag
+siEventflag
+sDataqueue
+siDataqueue
+sPriorityDataqueue
+siPriorityDataqueue
+sFixedSizeMemoryPool
+sKernel
+siKernel
+*/
+
+// cell nMruby::tTECSInitializer VM_TECSInitializer;
+cell nMruby::tMrubyProc VM {
+  cInit = VM_TECSInitializer.eInitialize;
+};
+
+// generate celltype 'nC2TECS::tnPosix_sMain' from signature 'nPosix::sMain'
+generate( C2TECSBridgePlugin, nPosix::sMain, "" );
+
+cell nC2TECS::tnPosix_sMain Main {
+	cCall = VM.eMain;
+};

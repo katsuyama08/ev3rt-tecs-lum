@@ -1,0 +1,321 @@
+__tool_info__ ("tecsgen") {
+    "tecscde_version"     : "0.5.1.0",
+    "cde_format_version"  : "0.5.0.0",
+    "save_date"           : "2017-11-05T12:29:57+00:00",
+    "base_dir" : [
+        "C:/cygwin64/home/oyama/TECS/tecsgen/test/composite",
+        "/home/oyama/TECS/tecsgen/test/composite"
+    ],
+    "define_macro" : [
+
+    ],
+   "import_path" : [
+        ".",
+        "../cygwin",
+        "../../tecs",
+        "../RUNTIME/runtime/include",
+        "../RUNTIME/runtime/test",
+        "src"
+    ],
+    "direct_import" : [
+        "composite.cdl"
+    ]
+}
+
+
+/*************************************************
+ *         TOOL INFORMATION FOR TECSCDE          *
+ *     This  information is used by tecscde      *
+ *  please don't touch if you are not familiar   *
+ ************************************************/
+__tool_info__ ("tecscde") {
+    "paper" : {
+       "type" : "paper",
+       "size" :  "A3",
+       "orientation" :  "LANDSCAPE"
+    },
+    "cell_list" : [
+        {       /** cell_list[ 0 ] **/
+            "type"     : "cell_location",
+            "name"     : "SysLog",
+            "location" : [ 10.0, 10.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eSysLog",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 1 ] **/
+            "type"     : "cell_location",
+            "name"     : "Kernel",
+            "location" : [ 65.0, 10.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eKernel",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 10.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eiKernel",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 19.0
+                }
+            ]
+        },
+        {       /** cell_list[ 2 ] **/
+            "type"     : "cell_location",
+            "name"     : "cell_serv",
+            "location" : [ 140.0, 99.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eEntry",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 10.0
+                }
+            ]
+        },
+        {       /** cell_list[ 3 ] **/
+            "type"     : "cell_location",
+            "name"     : "compcell1",
+            "location" : [ 194.0, 54.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cCall1",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 10.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eEntry",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 13.0
+                }
+            ]
+        },
+        {       /** cell_list[ 4 ] **/
+            "type"     : "cell_location",
+            "name"     : "compcell2",
+            "location" : [ 143.0, 12.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cCall1",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eEntry",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 22.0
+                }
+            ]
+        },
+        {       /** cell_list[ 5 ] **/
+            "type"     : "cell_location",
+            "name"     : "cell_clnt",
+            "location" : [ 198.0, 12.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cCall",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                }
+            ]
+        },
+        {       /** cell_list[ 6 ] **/
+            "type"     : "cell_location",
+            "name"     : "cell_serv2",
+            "location" : [ 20.0, 95.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eEntry",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 14.0
+                }
+            ]
+        },
+        {       /** cell_list[ 7 ] **/
+            "type"     : "cell_location",
+            "name"     : "active_singleton",
+            "location" : [ 18.0, 49.0, 46.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+                {
+                    "type"      : "port_location",
+                    "port_name" : "cCall1",
+                    "edge"      : "EDGE_BOTTOM",
+                    "offset"    : 4.0
+                },
+                {
+                    "type"      : "port_location",
+                    "port_name" : "eEntry",
+                    "edge"      : "EDGE_TOP",
+                    "offset"    : 13.0
+                }
+            ]
+        },
+        {       /** cell_list[ 8 ] **/
+            "type"     : "cell_location",
+            "name"     : "PtrAttr",
+            "location" : [ 64.0, 75.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+
+            ]
+        },
+        {       /** cell_list[ 9 ] **/
+            "type"     : "cell_location",
+            "name"     : "PtrAttr2",
+            "location" : [ 100.0, 34.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+
+            ]
+        },
+        {       /** cell_list[ 10 ] **/
+            "type"     : "cell_location",
+            "name"     : "SizeArray",
+            "location" : [ 102.0, 57.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+
+            ]
+        },
+        {       /** cell_list[ 11 ] **/
+            "type"     : "cell_location",
+            "name"     : "CompSizeArray",
+            "location" : [ 101.0, 10.0, 30.0, 15.0 ],
+            "region"   : "::",
+            "port_location" : [
+
+            ]
+        }
+    ],
+    "join_list" : [
+        {       /** join_list[ 0 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "compcell1",
+            "call_region" : "::",
+            "call_port"   : "cCall1",
+            "entry_cell"  : "cell_serv",
+            "entry_region": "::",
+            "entry_port"  : "eEntry",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 89.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 176.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 89.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 150.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 99.0
+                }
+            ]
+        },
+        {       /** join_list[ 1 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "compcell2",
+            "call_region" : "::",
+            "call_port"   : "cCall1",
+            "entry_cell"  : "cell_serv",
+            "entry_region": "::",
+            "entry_port"  : "eEntry",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 37
+                },                {
+                     "type"     : "HBar",
+                     "position" : 176.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 89.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 150.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 99.0
+                }
+            ]
+        },
+        {       /** join_list[ 2 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "cell_clnt",
+            "call_region" : "::",
+            "call_port"   : "cCall",
+            "entry_cell"  : "compcell1",
+            "entry_region": "::",
+            "entry_port"  : "eEntry",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 37.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 229.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 44.0
+                },                {
+                     "type"     : "HBar",
+                     "position" : 207.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 54.0
+                }
+            ]
+        },
+        {       /** join_list[ 3 ] **/
+            "type"        : "join_location",
+            "call_cell"   : "active_singleton",
+            "call_region" : "::",
+            "call_port"   : "cCall1",
+            "entry_cell"  : "cell_serv2",
+            "entry_region": "::",
+            "entry_port"  : "eEntry",
+            "bar_list"    : [
+                {
+                     "type"     : "VBar",
+                     "position" : 74
+                },                {
+                     "type"     : "HBar",
+                     "position" : 32
+                },                {
+                     "type"     : "VBar",
+                     "position" : 82
+                },                {
+                     "type"     : "HBar",
+                     "position" : 34.0
+                },                {
+                     "type"     : "VBar",
+                     "position" : 95.0
+                }
+            ]
+        }
+    ]
+}

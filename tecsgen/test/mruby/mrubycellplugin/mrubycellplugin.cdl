@@ -1,0 +1,29 @@
+import( <cygwin_kernel.cdl> );
+import( <mruby.cdl> );
+
+signature sSig {
+    int_t func( [in]int_t in );
+};
+
+celltype tCt {
+    entry sSig eEntry;
+    entry sSig eEntry2;
+    entry sSig eEntry3;
+};
+
+[generate( MrubyBridgeCellPlugin,"")]
+cell tCt Cell {
+};
+
+[generate( MrubyBridgeCellPlugin,"")]
+cell tCt Cell2 {
+};
+
+cell nMruby::tMrubyProc MrubyVM {
+    cInit = VM_TECSInitializer.eInitialize;
+};
+
+generate( C2TECSBridgePlugin, nPosix::sMain, "" );
+cell nC2TECS::tnPosix_sMain Main {
+    cCall = MrubyVM.eMain;
+};

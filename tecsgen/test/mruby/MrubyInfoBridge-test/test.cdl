@@ -1,0 +1,180 @@
+import( <cygwin_kernel.cdl> );
+import( <tSysLog.cdl> );
+
+cell tSysLog SysLog{};
+cell tKernel Kernel{};
+
+typedef uint32_t UINT32;
+
+typedef struct tag {
+	int8_t	a;
+	int32_t	b;
+} TAG;
+
+typedef struct {   // tag 名のない構造体
+	int8_t	a;
+	int32_t	b;
+} TAG2;
+
+signature sSig {
+	ER		func( [in]int32_t  a );
+	void	func2( [in, size_is(len)]const int32_t *buf, [in]int32_t len );
+	void	func3( [in]UINT32  a );
+	void	func4( [in]struct tag  a );
+	void	func5( [out]TAG  *a );
+	void	func6( [in, string(len)]const char_t  *a, [in]int32_t len );
+	void	func7( [in]bool_t boo );
+
+	// int など非推奨の型
+	void	func11( void );
+	bool_t	func12( [in]bool_t bi, [out]bool_t *bo, [inout]bool_t *bio );
+	int		func13( [in]int    ii, [out]int    *io, [inout]int    *iio );
+	char	func14( [in]char   ii, [out]char   *io, [inout]char   *iio );
+	short	func15( [in]short  ii, [out]short  *io, [inout]short  *iio );
+	long	func16( [in]long   ii, [out]long   *io, [inout]long   *iio );
+
+	// unsigned int など非推奨の型
+	unsigned int 	func23( [in]unsigned int    ii, [out]unsigned int    *io, [inout]unsigned int    *iio );
+	unsigned char	func24( [in]unsigned char   ii, [out]unsigned char   *io, [inout]unsigned char   *iio );
+	unsigned short	func25( [in]unsigned short  ii, [out]unsigned short  *io, [inout]unsigned short  *iio );
+	unsigned long	func26( [in]unsigned long   ii, [out]unsigned long   *io, [inout]unsigned long   *iio );
+
+	// intN_t 推奨の型
+	char_t		func31( [in]char_t   ii, [out]char_t    *io, [inout]char_t  *iio );
+	schar_t		func32( [in]schar_t  ii, [out]schar_t   *io, [inout]schar_t *iio );
+	int8_t		func33( [in]int8_t   ii, [out]int8_t    *io, [inout]int8_t  *iio );
+	int16_t		func34( [in]int16_t  ii, [out]int16_t   *io, [inout]int16_t  *iio );
+	int32_t		func35( [in]int32_t  ii, [out]int32_t   *io, [inout]int32_t  *iio );
+	int64_t		func36( [in]int64_t  ii, [out]int64_t   *io, [inout]int64_t  *iio );
+
+	// uintN_t 推奨の型
+	uchar_t		func42( [in]uchar_t   ii, [out]uchar_t    *io, [inout]uchar_t  *iio );
+	uint8_t		func43( [in]uint8_t   ii, [out]uint8_t    *io, [inout]uint8_t  *iio );
+	uint16_t	func44( [in]uint16_t  ii, [out]uint16_t   *io, [inout]uint16_t  *iio );
+	uint32_t	func45( [in]uint32_t  ii, [out]uint32_t   *io, [inout]uint32_t  *iio );
+	uint64_t	func46( [in]uint64_t  ii, [out]uint64_t   *io, [inout]uint64_t  *iio );
+
+	// 浮動小数推奨の型
+	float32_t	func53( [in]float32_t   ii, [out]float32_t    *io, [inout]float32_t  *iio );
+	double64_t	func54( [in]double64_t  ii, [out]double64_t   *io, [inout]double64_t  *iio );
+
+	// size_is 指定のある場合 60
+	// in でポインタ型の場合 70
+	// string 指定のある場合 80
+
+	// 構造体 90
+
+	// typedef された型 100
+	ER			func101( [in]TAG a );
+	ER			func102( [in]const TAG *a );
+	// ER			func103( [in]TAG2 a );         tag 名のない構造体は扱えない
+	// ER			func104( [in]const TAG2 *a );
+
+	 ER			func201( [in]intptr_t a );
+	 ER			func202( [in]uintptr_t a );
+};
+
+signature sHello {
+       void hello( void );
+};
+
+celltype tSig {
+	entry sHello eHello;
+	entry sSig eEnt;
+};
+
+generate( MrubyBridgePlugin, sSig, "" );
+
+cell tSig Sig {
+};
+
+cell nMruby::tsSig SigBridge {
+	[through(TracePlugin,"")]
+		cTECS = Sig.eEnt;
+};
+
+cell tSig Sig2 {
+};
+
+cell nMruby::tsSig SigBridge2 {
+	[through(TracePlugin,"")]
+		cTECS = Sig2.eEnt;
+};
+
+cell tSig Sig3 {
+};
+
+cell nMruby::tsSig SigBridge3 {
+    [through(TracePlugin,"")]
+        cTECS = Sig3.eEnt;
+    VMname = "VM2";
+};
+
+// cell nMruby::tTECSInitializer VM_TECSInitializer;
+cell nMruby::tMrubyProc VM {
+  cInit = VM_TECSInitializer.eInitialize;
+};
+
+
+// cell nMruby::tTECSInitializer VM_TECSInitializer;
+cell nMruby::tMrubyProc VM2 {
+    cInit = VM2_TECSInitializer.eInitialize;
+};
+
+
+// // generate celltype 'C2TECS::tnPosix_sMain' from signature 'nPosix::sMain'
+// generate( C2TECSBridgePlugin, nPosix::sMain, "" );
+//
+// cell C2TECS::tnPosix_sMain Main {
+// 	cCall = VM.eMain;
+// };
+
+celltype tTaskMain2PosixMain{
+    entry  sTaskBody      eMain;
+    call   nPosix::sMain  cMain;
+    attr {
+        int     argc;
+        [size_is(argc)]
+            char    **argv;
+    };
+};
+
+cell tTaskMain2PosixMain ConvMain{
+    cMain = VM.eMain;
+    argc = 2;
+    argv = { "test.exe", "test.rb" };
+};
+
+cell tTaskMain2PosixMain ConvMain2{
+	cMain = VM2.eMain;
+	argc = 2;
+	argv = { "test.exe", "test2.rb" };
+};
+
+cell tTask VMTask{
+	cBody = ConvMain.eMain;
+	priority = 11;
+	stackSize = 4096;
+	taskAttribute = C_EXP( "TA_ACT" );
+};
+
+cell tTask VM2Task{
+	cBody = ConvMain2.eMain;
+	priority = 11;
+	stackSize = 4096;
+  taskAttribute = C_EXP( "TA_ACT" );
+  // taskAttribute = C_EXP( "TA_NULL" );
+};
+
+generate( MrubyBridgePlugin, tTask, "" );
+
+// -------- TECSInfoAccessor --------- //
+import( <TECSInfoAccessor.cdl> );
+
+[generate( MrubyBridgePlugin, "exclude_port=eTECSInfo")]
+cell nTECSInfo::tTECSInfoCompo TECSInfo {
+};
+
+// -------- MrubyInfoBridgePlugin --------- //
+import( <mruby.cdl> );
+generate( MrubyInfoBridgePlugin, TECSInfo, "exclude_port=eTECSInfo");

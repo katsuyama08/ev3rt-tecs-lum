@@ -1,0 +1,73 @@
+/*
+ * $Id: SimpleSample.cdl 1887 2012-09-14 07:26:36Z okuma-top $
+ *
+ * Simple な Sample
+ *
+ *  +------------------------------------+           +----------------------+          +-------------+
+ *  | mruby object                       |           |                      |          |             |
+ *  |bridge=                             | sSample   |  tMrubyBridgesSample |  sSample |   tSample   |
+ *  | TMrubyBridgesSampe("SimpleBridge") |==========>|     SimpleBridge     |----------|>  Sample    |
+ *  |                                    |  の関数群 |                      |cCall eEnt|             |
+ *  |                                    |           |                      |          |             |
+ *  +------------------------------------+           +----------------------+          +-------------+
+ *
+ *・シグニチャ記述
+ *
+ *   sSample … 関数インタフェースの定義
+ *              慣習として接頭文字 s を付加する
+ * 
+ *    シグニチャ sSampleには 2 つの関数 sayHello と howAreYou がある。
+ *    セルタイプ tSample の提供する機能となるので、sSample という名前にした。
+ *
+ *・セルタイプ記述
+ *
+ *   tMrubyBridgesSample … ブリッジセルのセルタイプ (MrubyBridgePlugin により生成)
+ *   tSample             … 呼び先のセルタイプ
+ *
+ */
+import_C( "tecs.h" );
+
+import( <tSysLog.cdl> );
+cell tSysLog SysLog{};
+
+import( "cygwin_kernel.cdl" );
+
+// --------- SimpleSample --------//
+// シグニチャ sSample
+signature sSample {
+    ER  sayHello( [in]int32_t times );
+    ER  howAreYou( [out,string(len)]char_t *buf, [in]int32_t len );
+};
+
+// セルタイプ tSample
+celltype tSample {
+    entry sSample eEnt;
+    entry sSample eEntArray[3];
+};
+
+// セル Sample
+cell tSample Sample
+{
+};
+
+// -------- TECSInfoAccessor --------- //
+import( <TECSInfoAccessor.cdl> );
+cell nTECSInfo::tTECSInfoCompo TECSInfo {
+};
+
+// -------- Mruby Bridge --------- //
+import( <mruby.cdl> );
+generate( MrubyBridgePlugin, TECSInfo, "exclude_port=eTECSInfo");
+generate( MrubyInfoBridgePlugin, TECSInfo, "exclude_port=eTECSInfo");
+
+// -------- Mruby VM の定義  ----------- //
+cell nMruby::tMrubyProc VM {
+    cInit = VM_TECSInitializer.eInitialize;
+};
+
+// -------- Main -------- //
+generate( C2TECSBridgePlugin, nPosix::sMain, "" );
+
+cell nC2TECS::tnPosix_sMain Main {
+    cCall = VM.eMain;
+};
